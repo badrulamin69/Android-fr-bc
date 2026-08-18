@@ -1,0 +1,72 @@
+[
+  {
+    "frontendPath": "/applicant-portal/my-admit-card/pdf",
+    "normalizedKey": "GET /applicant-portal/my-admit-card/pdf",
+    "method": "GET",
+    "file": "applicant-portal.service.ts",
+    "raw": "`${this.apiUrl}/my-admit-card/pdf`"
+  },
+  {
+    "frontendPath": "/applicant-portal/my-admit-card/html",
+    "normalizedKey": "GET /applicant-portal/my-admit-card/html",
+    "method": "GET",
+    "file": "applicant-portal.service.ts",
+    "raw": "`${this.apiUrl}/my-admit-card/html`"
+  },
+  {
+    "frontendPath": "url",
+    "normalizedKey": "GET url",
+    "method": "GET",
+    "file": "notification.service.ts",
+    "raw": "url);"
+  },
+  {
+    "frontendPath": "/pre-admissions/register",
+    "normalizedKey": "POST /pre-admissions/register",
+    "method": "POST",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/register`"
+  },
+  {
+    "frontendPath": "/pre-admissions/status/{param}",
+    "normalizedKey": "GET /pre-admissions/status/{param}",
+    "method": "GET",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/status/${registrationNumber}`);"
+  },
+  {
+    "frontendPath": "/pre-admissions/register/{param}/pdf",
+    "normalizedKey": "GET /pre-admissions/register/{param}/pdf",
+    "method": "GET",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/register/${registrationNumber}/pdf`"
+  },
+  {
+    "frontendPath": "/pre-admissions/register/{param}/qr-code",
+    "normalizedKey": "GET /pre-admissions/register/{param}/qr-code",
+    "method": "GET",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/register/${registrationNumber}/qr-code`"
+  },
+  {
+    "frontendPath": "/pre-admissions/register/{param}/payment-status",
+    "normalizedKey": "GET /pre-admissions/register/{param}/payment-status",
+    "method": "GET",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/register/${registrationNumber}/payment-status`);"
+  },
+  {
+    "frontendPath": "/pre-admissions/register/{param}/pay",
+    "normalizedKey": "POST /pre-admissions/register/{param}/pay",
+    "method": "POST",
+    "file": "pre-admission.service.ts",
+    "raw": "`${this.publicUrl}/register/${registrationNumber}/pay`"
+  },
+  {
+    "frontendPath": "url",
+    "normalizedKey": "GET url",
+    "method": "GET",
+    "file": "workflow.service.ts",
+    "raw": "url);"
+  }
+]

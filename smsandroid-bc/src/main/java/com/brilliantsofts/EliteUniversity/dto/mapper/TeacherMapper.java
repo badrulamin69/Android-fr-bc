@@ -1,0 +1,105 @@
+package com.brilliantsofts.EliteUniversity.dto.mapper;
+
+import com.brilliantsofts.EliteUniversity.dto.request.TeacherRequest;
+import com.brilliantsofts.EliteUniversity.dto.response.TeacherResponse;
+import com.brilliantsofts.EliteUniversity.entity.Teacher;
+
+public class TeacherMapper {
+    public static Teacher toEntity(TeacherRequest request) {
+        Teacher entity = new Teacher();
+        entity.setTeacherCode(request.getTeacherCode());
+        entity.setFirstName(request.getFirstName());
+        entity.setLastName(request.getLastName());
+        entity.setGender(request.getGender());
+        entity.setDateOfBirth(request.getDateOfBirth());
+        entity.setBloodGroup(request.getBloodGroup());
+        entity.setNationalId(request.getNationalId());
+        entity.setPassport(request.getPassport());
+        entity.setNationality(request.getNationality());
+        entity.setReligion(request.getReligion());
+        entity.setMaritalStatus(request.getMaritalStatus());
+        entity.setPhoto(request.getPhoto());
+        entity.setEmail(request.getEmail());
+        entity.setPhone(request.getPhone());
+        entity.setEmergencyContact(request.getEmergencyContact());
+        entity.setPresentAddress(request.getPresentAddress());
+        entity.setPermanentAddress(request.getPermanentAddress());
+        entity.setJoiningDate(request.getJoiningDate());
+        entity.setEmploymentStatus(request.getEmploymentStatus());
+        entity.setEmploymentType(request.getEmploymentType());
+        entity.setDesignation(request.getDesignation());
+        entity.setDepartmentId(request.getDepartmentId());
+        entity.setFacultyId(request.getFacultyId());
+        entity.setOfficeRoom(request.getOfficeRoom());
+        entity.setCampus(request.getCampus());
+        entity.setHighestDegree(request.getHighestDegree());
+        entity.setUniversity(request.getUniversity());
+        entity.setSpecialization(request.getSpecialization());
+        entity.setExperience(request.getExperience());
+        entity.setCertifications(request.getCertifications());
+        entity.setAssignedCourses(request.getAssignedCourses());
+        entity.setSections(request.getSections());
+        entity.setSemester(request.getSemester());
+        entity.setCreditLoad(request.getCreditLoad());
+        entity.setGoogleScholar(request.getGoogleScholar());
+        entity.setOrcid(request.getOrcid());
+        entity.setSalaryGrade(request.getSalaryGrade());
+        entity.setBasicSalary(request.getBasicSalary());
+        entity.setBankInformation(request.getBankInformation());
+        entity.setTaxId(request.getTaxId());
+        entity.setStatus(request.getStatus());
+        entity.setUserId(request.getUserId());
+        return entity;
+    }
+
+    public static TeacherResponse toResponse(Teacher entity) {
+        TeacherResponse response = new TeacherResponse();
+        response.setId(entity.getId());
+        response.setUniqueCode(entity.getUniqueCode());
+        response.setTeacherCode(entity.getTeacherCode());
+        response.setFirstName(entity.getFirstName());
+        response.setLastName(entity.getLastName());
+        response.setGender(entity.getGender());
+        response.setDateOfBirth(entity.getDateOfBirth());
+        response.setBloodGroup(entity.getBloodGroup());
+        response.setNationalId(entity.getNationalId());
+        response.setPassport(entity.getPassport());
+        response.setNationality(entity.getNationality());
+        response.setReligion(entity.getReligion());
+        response.setMaritalStatus(entity.getMaritalStatus());
+        response.setPhoto(entity.getPhoto());
+        response.setEmail(entity.getEmail());
+        response.setPhone(entity.getPhone());
+        response.setEmergencyContact(entity.getEmergencyContact());
+        response.setPresentAddress(entity.getPresentAddress());
+        response.setPermanentAddress(entity.getPermanentAddress());
+        response.setJoiningDate(entity.getJoiningDate());
+        response.setEmploymentStatus(entity.getEmploymentStatus());
+        response.setEmploymentType(entity.getEmploymentType());
+        response.setDesignation(entity.getDesignation());
+        response.setDepartmentId(entity.getDepartmentId());
+        response.setFacultyId(entity.getFacultyId());
+        response.setOfficeRoom(entity.getOfficeRoom());
+        response.setCampus(entity.getCampus());
+        response.setHighestDegree(entity.getHighestDegree());
+        response.setUniversity(entity.getUniversity());
+        response.setSpecialization(entity.getSpecialization());
+        response.setExperience(entity.getExperience());
+        response.setCertifications(entity.getCertifications());
+        response.setAssignedCourses(entity.getAssignedCourses());
+        response.setSections(entity.getSections());
+        response.setSemester(entity.getSemester());
+        response.setCreditLoad(entity.getCreditLoad());
+        response.setGoogleScholar(entity.getGoogleScholar());
+        response.setOrcid(entity.getOrcid());
+        response.setSalaryGrade(entity.getSalaryGrade());
+        response.setBasicSalary(entity.getBasicSalary());
+        response.setBankInformation(entity.getBankInformation());
+        response.setTaxId(entity.getTaxId());
+        response.setStatus(entity.getStatus());
+        response.setUserId(entity.getUserId());
+        response.setCreatedAt(entity.getCreatedAt());
+        response.setUpdatedAt(entity.getUpdatedAt());
+        return response;
+    }
+}

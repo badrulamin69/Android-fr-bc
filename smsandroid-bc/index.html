@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite University | Where Knowledge Grows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest-deep: #0d1f17;
+            --forest-mid: #1a3a2a;
+            --sage: #7d9b76;
+            --sage-light: #a8c4a0;
+            --earth: #c4a77d;
+            --earth-warm: #d4a843;
+            --cream: #f5f0e8;
+            --cream-dark: #e8dfd3;
+            --charcoal: #2d2d2d;
+            --moss: #4a6741;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        nav.scrolled {
+            background: rgba(13, 31, 23, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 4%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--cream);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--earth-warm);
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--earth-warm);
+            color: var(--forest-deep) !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 100px;
+            font-weight: 500 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--cream) !important;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-mid) 50%, var(--moss) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-organic-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .organic-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .organic-shape-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--sage);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .organic-shape-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--earth);
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -5s;
+        }
+
+        .organic-shape-3 {
+            width: 300px;
+            height: 300px;
+            background: var(--sage-light);
+            top: 50%;
+            left: 30%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding: 0 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            color: var(--sage-light);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 0.3s;
+        }
+
+        .hero-tag-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--earth-warm);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .line span {
+            display: block;
+            transform: translateY(100%);
+            animation: slideUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .hero-title .line:nth-child(1) span { animation-delay: 0.5s; }
+        .hero-title .line:nth-child(2) span { animation-delay: 0.65s; }
+        .hero-title .line:nth-child(3) span { animation-delay: 0.8s; }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--earth-warm);
+        }
+
+        @keyframes slideUp {
+            to { transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(245, 240, 232, 0.7);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 1.2s;
+        }
+
+        .btn-primary {
+            background: var(--earth-warm);
+            color: var(--forest-deep);
+            padding: 1.25rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-primary:hover {
+            background: var(--cream);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary svg {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        .btn-secondary {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        .btn-secondary::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--cream);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-secondary:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(245, 240, 232, 0.5);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1.5s;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--cream), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.3; transform: scaleY(0.6); }
+        }
+
+        /* Wave Divider */
+        .wave-divider {
+            position: relative;
+            margin-top: -1px;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--cream);
+            padding: 6rem 8%;
+            position: relative;
+        }
+
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stat-item.visible {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--forest-mid);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number .accent {
+            color: var(--earth-warm);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--sage);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 40%;
+            background: var(--cream-dark);
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--cream);
+            padding: 8rem 8%;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: end;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--sage);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-tag-line {
+            width: 40px;
+            height: 1px;
+            background: var(--sage);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--forest-deep);
+            line-height: 1.1;
+        }
+
+        .section-title em {
+            font-style: italic;
+            color: var(--earth-warm);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .programs-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--forest-deep);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .program-card.visible {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .program-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .program-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-desc {
+            font-size: 0.95rem;
+            color: rgba(245, 240, 232, 0.6);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--earth-warm);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            transition: gap 0.3s ease;
+        }
+
+        .program-link:hover {
+            gap: 1rem;
+        }
+
+        /* About Preview */
+        .about-preview {
+            background: var(--forest-mid);
+            padding: 10rem 8%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-preview-bg {
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--sage) 0%, transparent 70%);
+            opacity: 0.15;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 300px 300px 100px 100px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%);
+        }
+
+        .about-float-card {
+            position: absolute;
+            bottom: -2rem;
+            right: -2rem;
+            background: var(--cream);
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-float-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--forest-mid);
+            line-height: 1;
+        }
+
+        .about-float-label {
+            font-size: 0.8rem;
+            color: var(--sage);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .about-text-content {
+            color: var(--cream);
+        }
+
+        .about-text-content .section-tag {
+            color: var(--sage-light);
+        }
+
+        .about-text-content .section-tag-line {
+            background: var(--sage-light);
+        }
+
+        .about-text-content .section-title {
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(245, 240, 232, 0.7);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .about-feature-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .about-feature-text {
+            font-size: 0.95rem;
+            color: rgba(245, 240, 232, 0.8);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(245, 240, 232, 0.3);
+            color: var(--cream);
+            padding: 1.25rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-outline:hover {
+            background: var(--cream);
+            color: var(--forest-deep);
+            border-color: var(--cream);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--cream);
+            padding: 8rem 8%;
+            position: relative;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            position: relative;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .testimonial-card.visible {
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--sage-light);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage) 0%, var(--moss) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-name {
+            font-weight: 500;
+            color: var(--forest-deep);
+        }
+
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: var(--sage);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--forest-deep);
+            padding: 10rem 8%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-organic {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .cta-organic-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--sage);
+            opacity: 0.05;
+        }
+
+        .cta-organic-shape-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: -200px;
+        }
+
+        .cta-organic-shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--cream);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-title em {
+            font-style: italic;
+            color: var(--earth-warm);
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: rgba(245, 240, 232, 0.6);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1.25rem 1.75rem;
+            border-radius: 100px;
+            font-size: 1rem;
+            color: var(--cream);
+            width: 350px;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .cta-input::placeholder {
+            color: rgba(245, 240, 232, 0.4);
+        }
+
+        .cta-input:focus {
+            outline: none;
+            border-color: var(--earth-warm);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--forest-mid);
+            padding: 6rem 8% 3rem;
+            color: var(--cream);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer-logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+        }
+
+        .footer-desc {
+            font-size: 0.95rem;
+            color: rgba(245, 240, 232, 0.6);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cream);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--earth-warm);
+            color: var(--forest-deep);
+        }
+
+        .footer-col-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(245, 240, 232, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--earth-warm);
+        }
+
+        .footer-bottom {
+            padding-top: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(245, 240, 232, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-item::after {
+                display: none;
+            }
+
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .section-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 50 50" fill="none">
+                <path d="M25 5C20 5 15 8 12 13C9 18 8 24 10 30C12 36 16 40 22 42C28 44 34 43 38 39C42 35 44 29 43 23C42 17 39 12 34 8C33 7.5 32 8 31 9C30 10 30 12 31 14C32 16 34 17 36 16C38 15 39 13 39 11C39 9 38 7 36 6C34 5 32 5 30 6C28 7 27 9 28 11C29 13 31 14 33 13C35 12 36 10 35 8C34 6 32 5 30 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="25" cy="25" r="3" fill="currentColor"/>
+            </svg>
+            <span class="logo-text">Elite University</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#campus">Campus</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-organic-bg">
+            <div class="organic-shape organic-shape-1"></div>
+            <div class="organic-shape organic-shape-2"></div>
+            <div class="organic-shape organic-shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span class="hero-tag-dot"></span>
+                Enrollment Open for Fall 2026
+            </div>
+            <h1 class="hero-title">
+                <span class="line"><span>Where</span></span>
+                <span class="line"><span><em>Knowledge</em> Grows</span></span>
+                <span class="line"><span>Naturally</span></span>
+            </h1>
+            <p class="hero-subtitle">Cultivating tomorrow's leaders through rigorous scholarship, innovative research, and a deep connection to the world around us.</p>
+            <div class="hero-actions">
+                <a href="#apply" class="btn-primary">
+                    Begin Your Journey
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#programs" class="btn-secondary">
+                    Explore Programs
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1440 120" fill="none" preserveAspectRatio="none">
+            <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V120Z" fill="var(--cream)"/>
+        </svg>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item" data-delay="0">
+                <div class="stat-number">127<span class="accent">+</span></div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item" data-delay="100">
+                <div class="stat-number">15K<span class="accent">+</span></div>
+                <div class="stat-label">Students Worldwide</div>
+            </div>
+            <div class="stat-item" data-delay="200">
+                <div class="stat-number">94<span class="accent">%</span></div>
+                <div class="stat-label">Employment Rate</div>
+            </div>
+            <div class="stat-item" data-delay="300">
+                <div class="stat-number">200<span class="accent">+</span></div>
+                <div class="stat-label">Research Programs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-header">
+            <div>
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    Academic Programs
+                </div>
+                <h2 class="section-title">Cultivating <em>Minds</em>, Shaping <em>Futures</em></h2>
+            </div>
+            <p class="section-description">Our programs are designed to nurture intellectual curiosity and prepare students for the challenges of tomorrow. Each curriculum is crafted with input from industry leaders and renowned academics.</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card" data-delay="0">
+                <div class="program-icon">
+                    <svg viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="35" stroke="var(--sage-light)" stroke-width="1"/>
+                        <path d="M40 20V60M30 30L40 20L50 30M30 50L40 60L50 50" stroke="var(--earth-warm)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="program-title">Natural Sciences</h3>
+                <p class="program-desc">Explore the fundamental laws of nature through hands-on research and fieldwork in our state-of-the-art laboratories.</p>
+                <a href="#" class="program-link">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="program-card" data-delay="100">
+                <div class="program-icon">
+                    <svg viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="35" stroke="var(--sage-light)" stroke-width="1"/>
+                        <rect x="28" y="25" width="24" height="30" rx="2" stroke="var(--earth-warm)" stroke-width="2"/>
+                        <path d="M34 35H46M34 42H46M34 49H40" stroke="var(--earth-warm)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3 class="program-title">Humanities & Arts</h3>
+                <p class="program-desc">Journey through human culture and expression, developing critical thinking and creative problem-solving skills.</p>
+                <a href="#" class="program-link">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="program-card" data-delay="200">
+                <div class="program-icon">
+                    <svg viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="35" stroke="var(--sage-light)" stroke-width="1"/>
+                        <path d="M25 55L35 35L45 45L55 25" stroke="var(--earth-warm)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="25" cy="55" r="3" fill="var(--earth-warm)"/>
+                        <circle cx="35" cy="35" r="3" fill="var(--earth-warm)"/>
+                        <circle cx="45" cy="45" r="3" fill="var(--earth-warm)"/>
+                        <circle cx="55" cy="25" r="3" fill="var(--earth-warm)"/>
+                    </svg>
+                </div>
+                <h3 class="program-title">Engineering & Tech</h3>
+                <p class="program-desc">Build the future with cutting-edge programs in AI, sustainable engineering, and emerging technologies.</p>
+                <a href="#" class="program-link">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview" id="about">
+        <div class="about-preview-bg"></div>
+        <div class="about-content">
+            <div class="about-visual">
+                <div class="about-image-container">
+                    <div class="about-image"></div>
+                </div>
+                <div class="about-float-card">
+                    <div class="about-float-number">Est. 1899</div>
+                    <div class="about-float-label">Over a Century of Learning</div>
+                </div>
+            </div>
+            <div class="about-text-content">
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    About Elite University
+                </div>
+                <h2 class="section-title">Rooted in <em>Tradition</em>, Growing Toward the <em>Future</em></h2>
+                <p class="about-text">Elite University stands as a beacon of academic excellence, where generations of scholars have gathered to push the boundaries of knowledge. Our campus, nestled among ancient oaks and flowing streams, provides an environment where ideas take root and flourish.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 3L12 7L16 8L13 11L14 15L10 13L6 15L7 11L4 8L8 7L10 3Z" stroke="var(--earth-warm)" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="about-feature-text">World-class faculty with Nobel laureates</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="7" stroke="var(--earth-warm)" stroke-width="1.5"/>
+                                <path d="M10 6V10L13 13" stroke="var(--earth-warm)" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <span class="about-feature-text">24/7 research facilities access</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 3V17M10 3L5 8M10 3L15 8" stroke="var(--earth-warm)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="about-feature-text">Global exchange programs</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 10C3 14 6 17 10 17C14 17 17 14 17 10C17 6 14 3 10 3C6 3 3 6 3 10Z" stroke="var(--earth-warm)" stroke-width="1.5"/>
+                                <path d="M10 3V17M3 10H17" stroke="var(--earth-warm)" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <span class="about-feature-text">Sustainable campus initiative</span>
+                    </div>
+                </div>
+                <a href="#about" class="btn-outline">
+                    Discover Our Story
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <div>
+                <div class="section-tag">
+                    <span class="section-tag-line"></span>
+                    Student Voices
+                </div>
+                <h2 class="section-title">Stories of <em>Growth</em> & Discovery</h2>
+            </div>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-delay="0">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Elite University didn't just give me an education—it gave me a community. The professors here genuinely care about your growth, both academically and personally.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <div>
+                        <div class="testimonial-name">Sarah Chen</div>
+                        <div class="testimonial-role">MSc Environmental Science, 2024</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-delay="100">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The research opportunities here are unparalleled. I published my first paper in my junior year, thanks to the mentorship of world-renowned faculty.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div>
+                        <div class="testimonial-name">Marcus Johnson</div>
+                        <div class="testimonial-role">PhD Computer Science, 2023</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-delay="200">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The campus feels alive—like you're part of something bigger. The blend of tradition and innovation creates an atmosphere that inspires daily.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">A</div>
+                    <div>
+                        <div class="testimonial-name">Amara Patel</div>
+                        <div class="testimonial-role">BA Liberal Arts, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="apply">
+        <div class="cta-organic">
+            <div class="cta-organic-shape cta-organic-shape-1"></div>
+            <div class="cta-organic-shape cta-organic-shape-2"></div>
+        </div>
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to <em>Bloom</em>?</h2>
+            <p class="cta-subtitle">Join a community of thinkers, makers, and dreamers. Your journey starts here.</p>
+            <form class="cta-form">
+                <input type="email" class="cta-input" placeholder="Enter your email address">
+                <button type="submit" class="btn-primary">
+                    Get Started
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg viewBox="0 0 50 50" fill="none">
+                            <path d="M25 5C20 5 15 8 12 13C9 18 8 24 10 30C12 36 16 40 22 42C28 44 34 43 38 39C42 35 44 29 43 23C42 17 39 12 34 8C33 7.5 32 8 31 9C30 10 30 12 31 14C32 16 34 17 36 16C38 15 39 13 39 11C39 9 38 7 36 6C34 5 32 5 30 6C28 7 27 9 28 11C29 13 31 14 33 13C35 12 36 10 35 8C34 6 32 5 30 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="25" cy="25" r="3" fill="currentColor"/>
+                        </svg>
+                        <span class="footer-logo-text">Elite University</span>
+                    </div>
+                    <p class="footer-desc">Cultivating minds and shaping futures since 1899. Join us in building a brighter tomorrow.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <rect x="1" y="1" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="9" cy="9" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+                                <circle cx="13.5" cy="4.5" r="1" fill="currentColor"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path d="M15.5 3.5C14.8 4 14 4.3 13.2 4.3C13.8 3.8 14.2 3.1 14.3 2.3C13.5 2.8 12.7 3.1 11.8 3.3C11 2.5 9.9 2 8.7 2C6.4 2 4.5 3.9 4.5 6.2C4.5 6.5 4.5 6.8 4.6 7.1C2.5 7 0.7 5.8 -0.2 4.1C-0.5 4.7 -0.6 5.3 -0.6 6C-0.6 7.2 0 8.3 1 8.9C0.4 8.9 -0.1 8.7 -0.6 8.4V8.5C-0.6 10.5 0.8 12.2 2.7 12.6C2.3 12.7 1.9 12.7 1.5 12.7C1.2 12.7 0.9 12.7 0.6 12.6C1.2 14.3 2.7 15.5 4.5 15.5C3.1 16.6 1.4 17.3 -0.5 17.3C-0.8 17.3 -1.2 17.3 -1.5 17.2C0.4 18.4 2.6 19 5 19C8.7 19 12.1 16.6 12.1 8.9C12.1 8.6 12.1 8.3 12.1 8C12.9 7.5 13.6 6.8 14.1 6C13.4 6.3 12.6 6.5 11.8 6.5" stroke="currentColor" stroke-width="1.2"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <rect x="1" y="1" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M5 8V13M5 5V5.01M8 13V10C8 9 9 8 10 8C11 8 12 9 12 10V13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Undergraduate</a></li>
+                        <li><a href="#">Graduate</a></li>
+                        <li><a href="#">Online Learning</a></li>
+                        <li><a href="#">Executive Education</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">University</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Campus Tour</a></li>
+                        <li><a href="#">News & Events</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Admissions</a></li>
+                        <li><a href="#">Financial Aid</a></li>
+                        <li><a href="#">Student Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Elite University. All rights reserved.</span>
+                <span>Privacy Policy &middot; Terms of Service</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.stat-item, .program-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for organic shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            document.querySelectorAll('.organic-shape').forEach((shape, index) => {
+                const speed = 0.1 + (index * 0.05);
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Counter animation for stats
+        const animateCounter = (element, target, suffix = '') => {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 30);
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const text = counter.textContent;
+                        const match = text.match(/(\d+)/);
+                        if (match) {
+                            const target = parseInt(match[1]);
+                            const suffix = text.replace(match[1], '').trim();
+                            counter.textContent = '0' + suffix;
+                            animateCounter(counter, target, suffix);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
